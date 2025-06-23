@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title layout:title-pattern="$LAYOUT_TITLE: $CONTENT_TITLE">Greetings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/webjars/font-awesome/css/all.min.css" />
+</head>
+<body>
+
+<div class="container mt-lg-5">
+    <div class="alert alert-success alert-dismissible" role="alert" th:if="${ok_message}">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+        <span th:text="${ok_message}">Success!</span>
+    </div>
+
+    <div layout:fragment="content">
+        Main page body goes here...
+    </div>
+</div>
+
+<script type="text/javascript" src="/webjars/popper.js/umd/popper.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}" lang="eng">
+<head>
+    <title>Workout Template</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <h1>Workout Template</h1>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Exercise Name</th>
+                <th>Reps</th>
+                <th>Sets</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="w : ${workouts}">
+                <td th:text="${w.exercise}">Exercise</td>
+                <td th:text="${w.reps}">Reps</td>
+                <td th:text="${w.sets}">Sets</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

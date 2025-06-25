@@ -1,7 +1,7 @@
 package fitnessapp.dao;
 
-import fitnessapp.entities.WorkoutTemplate;
+import fitnessapp.entities.Workout;
 import org.springframework.data.repository.CrudRepository;
 
-interface WorkoutRepository extends CrudRepository<WorkoutTemplate, Long> {
+public interface WorkoutRepository extends CrudRepository<Workout,Long> {
 }

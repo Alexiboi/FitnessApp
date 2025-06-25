@@ -1,20 +1,15 @@
 package fitnessapp.dao;
 
-import fitnessapp.entities.WorkoutTemplate;
+import fitnessapp.entities.Workout;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface WorkoutService {
+    public Iterable<Workout> findAll();
 
-    public Iterable<WorkoutTemplate> findAll();
-
-    public Optional<WorkoutTemplate> findByWorkoutId(Long id);
+    public Optional<Workout> findByWorkoutId(Long id);
 
     public long count();
 
-    public WorkoutTemplate save(WorkoutTemplate workoutTemplate);
-
-
-
+    public Workout save(Workout workout);
 }

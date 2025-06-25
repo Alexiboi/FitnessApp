@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
-    <title layout:title-pattern="$LAYOUT_TITLE: $CONTENT_TITLE">Greetings</title>
+    <title layout:title-pattern="$LAYOUT_TITLE: $CONTENT_TITLE">Fitness App</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,20 +11,46 @@
     <link rel="stylesheet" href="/webjars/font-awesome/css/all.min.css" />
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">Home page</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#hello-navbar-collapse" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<div class="container mt-lg-5">
-    <div class="alert alert-success alert-dismissible" role="alert" th:if="${ok_message}">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="collapse navbar-collapse" id="hello-navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/workouts}">Workouts</a></li>
+                </ul>
+<!--                <div class="navbar-text" sec:authorize="!isAuthenticated()">-->
+<!--                    <i class="fa-solid fa-user" aria-hidden="true"></i> Not signed in |-->
+<!--                    <a class="btn btn-primary navbar-btn" role="button" th:href="@{/sign-in}">-->
+<!--                        <i class="fa-solid fa-sign-in-alt" aria-hidden="true"></i> Sign in-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <form class="d-flex" th:action="@{/sign-out}" method="post" sec:authorize="isAuthenticated()">-->
+<!--                    <div class="navbar-text">-->
+<!--                        <i class="fa-solid fa-user" aria-hidden="true"></i> Signed in as <span sec:authentication="name"></span> |-->
+<!--                    </div>&nbsp;-->
+<!--                    <button type="submit" class="btn btn-warning navbar-btn"><i class="fa-solid fa-sign-out-alt" aria-hidden="true"></i> Sign out</button>-->
+<!--                </form>-->
+            </div>
+        </div>
+    </nav>
 
-        <span th:text="${ok_message}">Success!</span>
+    <div class="container mt-lg-5">
+        <div class="alert alert-success alert-dismissible" role="alert" th:if="${ok_message}">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+            <span th:text="${ok_message}">Success!</span>
+        </div>
+
+        <div layout:fragment="content">
+            Main page body goes here...
+        </div>
     </div>
 
-    <div layout:fragment="content">
-        Main page body goes here...
-    </div>
-</div>
-
-<script type="text/javascript" src="/webjars/popper.js/umd/popper.min.js"></script>
-<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/webjars/popper.js/umd/popper.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

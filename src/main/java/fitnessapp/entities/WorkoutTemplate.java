@@ -1,58 +1,49 @@
 package fitnessapp.entities;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.jdbc.Work;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class WorkoutTemplate {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long template_id;
 
-    private int reps;
+    private String workoutTitle;
 
-    private int sets;
-
-    private String exercise;
+    @OneToMany(mappedBy = "workoutTemplate", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Workout> workouts = new ArrayList<>();
 
     public WorkoutTemplate() {}
 
-    public WorkoutTemplate(int reps, int sets, String exercise) {
-        this.reps = reps;
-        this.sets = sets;
-        this.exercise = exercise;
+    public WorkoutTemplate(String workoutTitle) {
+        this.workoutTitle = workoutTitle;
     }
 
-    public String getExercise(){
-        return exercise;
+    public List<Workout> getWorkouts() {
+        return workouts;
     }
 
-    public void setExercise(String exercise){
-        this.exercise = exercise;
+    public void setWorkouts(List<Workout> workouts) {
+        this.workouts = workouts;
     }
 
-    public int getReps(){
-        return this.reps;
+    public String getTitle() {
+        return workoutTitle;
     }
 
-    public void setReps(int reps){
-        this.reps = reps;
-    }
-
-    public int getSets(){
-        return this.sets;
-    }
-
-    public void setSets(int sets){
-        this.sets = sets;
+    public void setTitle(String workoutTitle) {
+        this.workoutTitle = workoutTitle;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.template_id = id;
     }
 
     public Long getId() {
-        return id;
+        return template_id;
     }
 }

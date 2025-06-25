@@ -1,27 +1,26 @@
 package fitnessapp.dao;
 
-import fitnessapp.entities.WorkoutTemplate;
+
+import fitnessapp.entities.Workout;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
 @Transactional
-class WorkoutServiceImpl implements WorkoutService {
-
+public class WorkoutServiceImpl implements WorkoutService {
     @Autowired
     private WorkoutRepository workoutRepository;
 
     @Override
-    public Iterable<WorkoutTemplate> findAll(){
+    public Iterable<Workout> findAll(){
         return workoutRepository.findAll();
     }
 
     @Override
-    public Optional<WorkoutTemplate> findByWorkoutId(Long id){
+    public Optional<Workout> findByWorkoutId(Long id){
         return workoutRepository.findById(id);
     }
 
@@ -31,9 +30,7 @@ class WorkoutServiceImpl implements WorkoutService {
     }
 
     @Override
-    public WorkoutTemplate save(WorkoutTemplate workoutTemplate){
-        return workoutRepository.save(workoutTemplate);
+    public Workout save(Workout workout){
+        return workoutRepository.save(workout);
     }
-
-
 }

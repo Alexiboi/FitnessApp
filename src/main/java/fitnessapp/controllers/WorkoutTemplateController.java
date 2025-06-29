@@ -1,10 +1,12 @@
 package fitnessapp.controllers;
 
 import fitnessapp.dao.WorkoutTemplateService;
+import fitnessapp.entities.WorkoutTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 
@@ -28,6 +30,19 @@ public class WorkoutTemplateController {
 
         return "workouts/index";
     }
+
+    @PostMapping
+    public String addWorkoutTemplate(WorkoutTemplate workoutTemplate) {
+        workoutTemplateService.save(workoutTemplate);
+        return "redirect:/workouts";
+    }
+
+    @PostMapping
+    public String editWorkoutTemplate(WorkoutTemplate workoutTemplate) {
+        workoutTemplateService.save(workoutTemplate);
+        return "redirect:/workouts";
+    }
+
 
 
 }

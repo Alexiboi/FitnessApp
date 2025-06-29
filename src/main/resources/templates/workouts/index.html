@@ -27,6 +27,13 @@
             </tr>
             </tbody>
         </table>
+        <p><button>Add </button></p>
+    </div>
+    <div layout:fragment="content">
+        <form>
+            <label for="workoutName">Name of workout:</label>
+            <input type="text" id="workoutName" th:field="*{name}">
+        </form>
     </div>
 </body>
 </html>
